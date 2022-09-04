@@ -1,6 +1,6 @@
 {
   "name": "rakkas-seo",
-  "version": "0.6.0-4",
+  "version": "0.6.0-5",
   "description": "rakkas SEO is a plug in that makes managing your SEO easier in rakkas.js projects.",
   "author": {
     "name": "Gary Meehan",
@@ -9,8 +9,26 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "esm/index.js",
-  "unpkg": "lib/index.js",
   "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "node": {
+        "import": {
+          "default": "./esm/index.js"
+        },
+        "require": {
+          "default": "./lib/index.js"
+        }
+      },
+      "import": "./esm/index.js",
+      "require": "./lib/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./src/*": "./src/*",
+    "./lib/*": "./lib/*",
+    "./esm/*": "./esm/*"
+  },
   "files": [
     "lib",
     "esm",
