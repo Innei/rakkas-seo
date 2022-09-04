@@ -1,6 +1,6 @@
 {
   "name": "rakkas-seo",
-  "version": "0.6.0-7",
+  "version": "0.6.0",
   "type": "module",
   "description": "rakkas SEO is a plug in that makes managing your SEO easier in rakkas.js projects.",
   "author": {
