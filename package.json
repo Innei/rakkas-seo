@@ -1,13 +1,14 @@
 {
   "name": "rakkas-seo",
-  "version": "0.6.0-5",
+  "version": "0.6.0-6",
+  "type": "module",
   "description": "rakkas SEO is a plug in that makes managing your SEO easier in rakkas.js projects.",
   "author": {
     "name": "Gary Meehan",
     "email": "garymeehan@outlook.com"
   },
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "esm/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",
   "exports": {
@@ -15,13 +16,9 @@
       "node": {
         "import": {
           "default": "./esm/index.js"
-        },
-        "require": {
-          "default": "./lib/index.js"
         }
       },
       "import": "./esm/index.js",
-      "require": "./lib/index.js",
       "types": "./types/index.d.ts"
     },
     "./package.json": "./package.json",
@@ -30,7 +27,6 @@
     "./esm/*": "./esm/*"
   },
   "files": [
-    "lib",
     "esm",
     "readme.md",
     "tsconfig.json",
@@ -59,8 +55,8 @@
   },
   "scripts": {
     "prebuild": "rm -rf lib && rm -rf esm",
-    "build": "tsc --build ./src/tsconfig.build.json && tsc --build src/tsconfig.cjs.json",
-    "postbuild": "tsc-alias -p src/tsconfig.build.json && tsc-alias -p src/tsconfig.cjs.json && npm run types",
+    "build": "tsc --build ./src/tsconfig.build.json",
+    "postbuild": "tsc-alias -p src/tsconfig.build.json && npm run types",
     "types": "rm -rf types && tsc --build src/tsconfig.types.json && tsc-alias -p src/tsconfig.types.json",
     "test": "vitest",
     "dev": "vite"
