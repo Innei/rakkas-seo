@@ -7,17 +7,18 @@ import type {
   Offers,
   Review,
   Video,
-} from '~/types'
-import { setAggregateRating } from '~/utils/schema/setAggregateRating'
-import { setAuthor } from '~/utils/schema/setAuthor'
-import { setImage } from '~/utils/schema/setImage'
-import { setOffers } from '~/utils/schema/setOffers'
-import { setProducer } from '~/utils/schema/setProducer'
-import { setProvider } from '~/utils/schema/setProvider'
-import { setReviews } from '~/utils/schema/setReviews'
-import { setVideo } from '~/utils/schema/setVideo'
+} from '~/types.js'
+import { setAggregateRating } from '~/utils/schema/setAggregateRating.js'
+import { setAuthor } from '~/utils/schema/setAuthor.js'
+import { setImage } from '~/utils/schema/setImage.js'
+import { setOffers } from '~/utils/schema/setOffers.js'
+import { setProducer } from '~/utils/schema/setProducer.js'
+import { setProvider } from '~/utils/schema/setProvider.js'
+import { setReviews } from '~/utils/schema/setReviews.js'
+import { setVideo } from '~/utils/schema/setVideo.js'
 
-import { JsonLd, JsonLdProps } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface VideoGameJsonLdProps extends JsonLdProps {
   keyOverride?: string

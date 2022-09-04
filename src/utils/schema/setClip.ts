@@ -1,4 +1,4 @@
-import type { Clip } from '~/types'
+import type { Clip } from '~/types.js'
 
 export function setClip(clips?: Clip | Clip[]) {
   function mapClip(clip: Clip) {

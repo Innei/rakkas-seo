@@ -1,4 +1,4 @@
-import type { AggregateRating } from '~/types'
+import type { AggregateRating } from '~/types.js'
 
 export function setAggregateRating(aggregateRating?: AggregateRating) {
   if (aggregateRating) {

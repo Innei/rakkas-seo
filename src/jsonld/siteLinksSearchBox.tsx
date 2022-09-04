@@ -1,15 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { JsonLd, JsonLdProps } from './jsonld';
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface PotentialAction {
-  target: string;
-  queryInput: string;
+  target: string
+  queryInput: string
 }
 
 export interface SiteLinksSearchBoxJsonLdProps extends JsonLdProps {
-  url: string;
-  potentialActions: PotentialAction[];
+  url: string
+  potentialActions: PotentialAction[]
 }
 
 function SiteLinksSearchBoxJsonLd({
@@ -20,20 +21,20 @@ function SiteLinksSearchBoxJsonLd({
 }: SiteLinksSearchBoxJsonLdProps) {
   function setPotentialAction(action: PotentialAction) {
     if (action) {
-      const { target, queryInput } = action;
+      const { target, queryInput } = action
       return {
         '@type': 'SearchAction',
         target: `${target}={${queryInput}}`,
         'query-input': `required name=${queryInput}`,
-      };
+      }
     }
-    return undefined;
+    return undefined
   }
 
   const data = {
     ...rest,
     potentialAction: potentialActions.map(setPotentialAction),
-  };
+  }
 
   return (
     <JsonLd
@@ -42,7 +43,7 @@ function SiteLinksSearchBoxJsonLd({
       {...data}
       scriptKey="jsonld-siteLinksSearchBox"
     />
-  );
+  )
 }
 
-export default SiteLinksSearchBoxJsonLd;
+export default SiteLinksSearchBoxJsonLd

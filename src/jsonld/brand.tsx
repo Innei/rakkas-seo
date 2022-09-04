@@ -1,10 +1,10 @@
 import React from 'react'
 
-import type { AggregateRating } from '~/types'
-import { setAggregateRating } from '~/utils/schema/setAggregateRating'
+import type { AggregateRating } from '~/types.js'
+import { setAggregateRating } from '~/utils/schema/setAggregateRating.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface BrandJsonLdProps extends JsonLdProps {
   id: string

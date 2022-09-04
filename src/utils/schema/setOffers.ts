@@ -1,4 +1,4 @@
-import type { Offers } from '~/types'
+import type { Offers } from '~/types.js'
 
 export function setOffers(offers?: Offers | Offers[]) {
   function mapOffer({ seller, ...rest }: Offers) {

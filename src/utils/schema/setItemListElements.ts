@@ -1,4 +1,4 @@
-import { ItemListElements } from '~/types'
+import type { ItemListElements } from '~/types.js'
 
 export function setItemListElements(items: ItemListElements[]) {
   if (items && items.length) {

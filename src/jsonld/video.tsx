@@ -1,10 +1,10 @@
 import React from 'react'
 
-import type { Video } from '~/types'
-import { setVideo } from '~/utils/schema/setVideo'
+import type { Video } from '~/types.js'
+import { setVideo } from '~/utils/schema/setVideo.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface VideoJsonLdProps extends JsonLdProps, Video {}
 

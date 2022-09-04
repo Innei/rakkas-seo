@@ -1,4 +1,4 @@
-import type { ReviewedBy } from '~/types'
+import type { ReviewedBy } from '~/types.js'
 
 export function setReviewedBy(reviewedBy?: ReviewedBy) {
   if (reviewedBy) {

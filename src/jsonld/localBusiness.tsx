@@ -9,18 +9,18 @@ import type {
   Offer,
   OpeningHoursSpecification,
   Review,
-} from '~/types'
-import { setAction } from '~/utils/schema/setAction'
-import { setAddress } from '~/utils/schema/setAddress'
-import { setAggregateRating } from '~/utils/schema/setAggregateRating'
-import { setGeo } from '~/utils/schema/setGeo'
-import { setGeoCircle } from '~/utils/schema/setGeoCircle'
-import { setOffer } from '~/utils/schema/setOffer'
-import { setOpeningHours } from '~/utils/schema/setOpeningHours'
-import { setReviews } from '~/utils/schema/setReviews'
+} from '~/types.js'
+import { setAction } from '~/utils/schema/setAction.js'
+import { setAddress } from '~/utils/schema/setAddress.js'
+import { setAggregateRating } from '~/utils/schema/setAggregateRating.js'
+import { setGeo } from '~/utils/schema/setGeo.js'
+import { setGeoCircle } from '~/utils/schema/setGeoCircle.js'
+import { setOffer } from '~/utils/schema/setOffer.js'
+import { setOpeningHours } from '~/utils/schema/setOpeningHours.js'
+import { setReviews } from '~/utils/schema/setReviews.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface LocalBusinessJsonLdProps extends JsonLdProps {
   type: string

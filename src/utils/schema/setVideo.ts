@@ -1,8 +1,8 @@
-import type { Video } from '~/types'
+import type { Video } from '~/types.js'
 
-import { setBroadcastEvent } from './setBroadcastEvent'
-import { setClip } from './setClip'
-import { setInteractionStatistic } from './setInteractionStatistic'
+import { setBroadcastEvent } from './setBroadcastEvent.js'
+import { setClip } from './setClip.js'
+import { setInteractionStatistic } from './setInteractionStatistic.js'
 
 export function setVideo(video?: Video, setContext = false) {
   function mapVideo(

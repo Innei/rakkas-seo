@@ -1,4 +1,4 @@
-import { GeoCircle } from '~/types'
+import type { GeoCircle } from '~/types.js'
 
 export function setGeoCircle(geoCircle?: GeoCircle) {
   if (geoCircle) {

@@ -1,11 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { JsonLd, JsonLdProps } from './jsonld';
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface DatasetJsonLdProps extends JsonLdProps {
-  description: string;
-  name: string;
-  license?: string;
+  description: string
+  name: string
+  license?: string
 }
 
 function DatasetJsonLd({
@@ -20,7 +21,7 @@ function DatasetJsonLd({
       {...rest}
       scriptKey="dataset"
     />
-  );
+  )
 }
 
-export default DatasetJsonLd;
+export default DatasetJsonLd

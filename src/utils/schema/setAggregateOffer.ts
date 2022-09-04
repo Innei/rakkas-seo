@@ -1,6 +1,6 @@
-import type { AggregateOffer } from '~/types'
+import type { AggregateOffer } from '~/types.js'
 
-import { setOffers } from './setOffers'
+import { setOffers } from './setOffers.js'
 
 export function setAggregateOffer(aggregateOffer?: AggregateOffer) {
   if (aggregateOffer) {

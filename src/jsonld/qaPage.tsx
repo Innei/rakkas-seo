@@ -1,9 +1,10 @@
 import React from 'react'
 
-import type { Question } from '~/types'
-import { setAuthor } from '~/utils/schema/setAuthor'
+import type { Question } from '~/types.js'
+import { setAuthor } from '~/utils/schema/setAuthor.js'
 
-import { JsonLd, JsonLdProps } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface QAPageJsonLdProps extends JsonLdProps {
   mainEntity: Question

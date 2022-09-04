@@ -1,4 +1,4 @@
-import { OpeningHoursSpecification } from '~/types'
+import type { OpeningHoursSpecification } from '~/types.js'
 
 export function setOpeningHours(openingHours?: OpeningHoursSpecification) {
   if (openingHours) {

@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { JsonLd, JsonLdProps } from './jsonld';
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface LogoJsonLdProps extends JsonLdProps {
-  logo: string;
-  url: string;
+  logo: string
+  url: string
 }
 
 function LogoJsonLd({
@@ -14,7 +15,7 @@ function LogoJsonLd({
 }: LogoJsonLdProps) {
   return (
     <JsonLd type={type} keyOverride={keyOverride} {...rest} scriptKey="Logo" />
-  );
+  )
 }
 
-export default LogoJsonLd;
+export default LogoJsonLd

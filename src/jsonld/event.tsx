@@ -8,14 +8,15 @@ import type {
   Offers,
   Organizer,
   Performer,
-} from '~/types'
-import { setAggregateOffer } from '~/utils/schema/setAggregateOffer'
-import { setLocation } from '~/utils/schema/setLocation'
-import { setOffers } from '~/utils/schema/setOffers'
-import { setOrganizer } from '~/utils/schema/setOrganizer'
-import { setPerformer } from '~/utils/schema/setPerformer'
+} from '~/types.js'
+import { setAggregateOffer } from '~/utils/schema/setAggregateOffer.js'
+import { setLocation } from '~/utils/schema/setLocation.js'
+import { setOffers } from '~/utils/schema/setOffers.js'
+import { setOrganizer } from '~/utils/schema/setOrganizer.js'
+import { setPerformer } from '~/utils/schema/setPerformer.js'
 
-import { JsonLd, JsonLdProps } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface EventJsonLdProps extends JsonLdProps {
   name: string

@@ -1,4 +1,4 @@
-import type { PriceSpecification } from '~/types'
+import type { PriceSpecification } from '~/types.js'
 
 export function setCost(cost?: PriceSpecification) {
   if (cost) {

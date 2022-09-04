@@ -1,7 +1,7 @@
 import { Head } from 'rakkasjs'
 import React from 'react'
 
-import toJson from '~/utils/toJson'
+import toJson from '~/utils/toJson.js'
 
 export interface JsonLdProps {
   type?: string

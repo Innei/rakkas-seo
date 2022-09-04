@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import { JsonLd, JsonLdProps } from './jsonld';
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface SocialProfileJsonLdProps extends JsonLdProps {
-  type: 'Person' | 'Organization';
-  name: string;
-  url: string;
-  sameAs: string[];
+  type: 'Person' | 'Organization'
+  name: string
+  url: string
+  sameAs: string[]
 }
 
 function SocialProfileJsonLd({
@@ -21,7 +22,7 @@ function SocialProfileJsonLd({
       {...rest}
       scriptKey="social"
     />
-  );
+  )
 }
 
-export default SocialProfileJsonLd;
+export default SocialProfileJsonLd

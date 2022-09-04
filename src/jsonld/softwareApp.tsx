@@ -1,10 +1,11 @@
 import React from 'react'
 
-import type { AggregateRating, Review } from '~/types'
-import { setAggregateRating } from '~/utils/schema/setAggregateRating'
-import { setReviews } from '~/utils/schema/setReviews'
+import type { AggregateRating, Review } from '~/types.js'
+import { setAggregateRating } from '~/utils/schema/setAggregateRating.js'
+import { setReviews } from '~/utils/schema/setReviews.js'
 
-import { JsonLd, JsonLdProps } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface SoftwareAppJsonLdProps extends JsonLdProps {
   name: string
@@ -30,7 +31,7 @@ function SoftwareAppJsonLd({
     offers: {
       '@type': 'Offer',
       price,
-      priceCurrency: priceCurrency,
+      priceCurrency,
     },
     aggregateRating: setAggregateRating(aggregateRating),
     review: setReviews(review),

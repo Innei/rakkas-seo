@@ -1,14 +1,14 @@
 import React from 'react'
 
-import type { AggregateRating, Instruction, Video } from '~/types'
-import { setAggregateRating } from '~/utils/schema/setAggregateRating'
-import { setAuthor } from '~/utils/schema/setAuthor'
-import { setInstruction } from '~/utils/schema/setInstruction'
-import { setNutrition } from '~/utils/schema/setNutrition'
-import { setVideo } from '~/utils/schema/setVideo'
+import type { AggregateRating, Instruction, Video } from '~/types.js'
+import { setAggregateRating } from '~/utils/schema/setAggregateRating.js'
+import { setAuthor } from '~/utils/schema/setAuthor.js'
+import { setInstruction } from '~/utils/schema/setInstruction.js'
+import { setNutrition } from '~/utils/schema/setNutrition.js'
+import { setVideo } from '~/utils/schema/setVideo.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface RecipeJsonLdProps extends JsonLdProps {
   name: string

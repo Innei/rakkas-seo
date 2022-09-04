@@ -1,28 +1,29 @@
-import React from 'react';
+import React from 'react'
 
-import { JsonLd, JsonLdProps } from './jsonld';
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface HiringOrganization {
-  name: string;
-  sameAs: string;
-  logo?: string;
+  name: string
+  sameAs: string
+  logo?: string
 }
 
 export interface Place {
-  addressLocality: string;
-  addressRegion: string;
-  postalCode: string;
-  streetAddress: string;
-  addressCountry: string;
+  addressLocality: string
+  addressRegion: string
+  postalCode: string
+  streetAddress: string
+  addressCountry: string
 }
 
 export interface MonetaryAmount {
-  currency: string;
-  value: number | [number, number];
-  unitText: UnitTextType;
+  currency: string
+  value: number | [number, number]
+  unitText: UnitTextType
 }
 
-export type UnitTextType = 'HOUR' | 'DAY' | 'WEEK' | 'MONTH' | 'YEAR';
+export type UnitTextType = 'HOUR' | 'DAY' | 'WEEK' | 'MONTH' | 'YEAR'
 
 export type EmploymentType =
   | 'FULL_TIME'
@@ -32,20 +33,20 @@ export type EmploymentType =
   | 'INTERN'
   | 'VOLUNTEER'
   | 'PER_DIEM'
-  | 'OTHER';
+  | 'OTHER'
 
 export interface JobPostingJsonLdProps extends JsonLdProps {
-  keyOverride?: string;
-  datePosted: string;
-  description: string;
-  hiringOrganization: HiringOrganization;
-  title: string;
-  validThrough: string;
-  applicantLocationRequirements?: string;
-  baseSalary?: MonetaryAmount;
-  employmentType?: EmploymentType | EmploymentType[];
-  jobLocation?: Place;
-  jobLocationType?: string;
+  keyOverride?: string
+  datePosted: string
+  description: string
+  hiringOrganization: HiringOrganization
+  title: string
+  validThrough: string
+  applicantLocationRequirements?: string
+  baseSalary?: MonetaryAmount
+  employmentType?: EmploymentType | EmploymentType[]
+  jobLocation?: Place
+  jobLocationType?: string
 }
 
 function JobPostingJsonLd({
@@ -72,10 +73,10 @@ function JobPostingJsonLd({
               }
             : { value: baseSalary.value }),
         },
-      };
+      }
     }
 
-    return undefined;
+    return undefined
   }
 
   function setHiringOrganization(org: HiringOrganization) {
@@ -84,7 +85,7 @@ function JobPostingJsonLd({
       name: org.name,
       sameAs: org.sameAs,
       logo: org.logo,
-    };
+    }
   }
 
   function setJobLocation(location?: Place) {
@@ -99,10 +100,10 @@ function JobPostingJsonLd({
           postalCode: location.postalCode,
           streetAddress: location.streetAddress,
         },
-      };
+      }
     }
 
-    return undefined;
+    return undefined
   }
 
   function setApplicantLocationRequirements(requirements?: string) {
@@ -110,9 +111,9 @@ function JobPostingJsonLd({
       return {
         '@type': 'Country',
         name: requirements,
-      };
+      }
     }
-    return undefined;
+    return undefined
   }
 
   const data = {
@@ -123,7 +124,7 @@ function JobPostingJsonLd({
     applicantLocationRequirements: setApplicantLocationRequirements(
       applicantLocationRequirements,
     ),
-  };
+  }
 
   return (
     <JsonLd
@@ -132,7 +133,7 @@ function JobPostingJsonLd({
       {...data}
       scriptKey="JobPosting"
     />
-  );
+  )
 }
 
-export default JobPostingJsonLd;
+export default JobPostingJsonLd

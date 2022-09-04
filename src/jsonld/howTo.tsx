@@ -1,14 +1,14 @@
 import React from 'react'
 
-import type { PriceSpecification, Step } from '~/types'
-import { setCost } from '~/utils/schema/setCost'
-import { setImage } from '~/utils/schema/setImage'
-import { setStep } from '~/utils/schema/setStep'
-import { setSupply } from '~/utils/schema/setSupply'
-import { setTool } from '~/utils/schema/setTool'
+import type { PriceSpecification, Step } from '~/types.js'
+import { setCost } from '~/utils/schema/setCost.js'
+import { setImage } from '~/utils/schema/setImage.js'
+import { setStep } from '~/utils/schema/setStep.js'
+import { setSupply } from '~/utils/schema/setSupply.js'
+import { setTool } from '~/utils/schema/setTool.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface HowToJsonLdProps extends JsonLdProps {
   name: string

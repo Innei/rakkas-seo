@@ -1,8 +1,8 @@
-import type { Review } from '~/types'
+import type { Review } from '~/types.js'
 
-import { setAuthor } from './setAuthor'
-import { setPublisher } from './setPublisher'
-import { setReviewRating } from './setReviewRating'
+import { setAuthor } from './setAuthor.js'
+import { setPublisher } from './setPublisher.js'
+import { setReviewRating } from './setReviewRating.js'
 
 export function setReviews(reviews?: Review | Review[]) {
   function mapReview({ reviewRating, author, publisher, ...rest }: Review) {

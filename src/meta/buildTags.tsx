@@ -1,5 +1,8 @@
-import React, { ReactNode } from 'react';
-import { BuildTagsParams, OpenGraphMedia } from '../types';
+import type { ReactNode } from 'react'
+import React from 'react'
+
+import type { BuildTagsParams, OpenGraphMedia } from '../types.js'
+
 const defaults = {
   templateTitle: '',
   noindex: false,
@@ -8,7 +11,7 @@ const defaults = {
   defaultOpenGraphImageHeight: 0,
   defaultOpenGraphVideoWidth: 0,
   defaultOpenGraphVideoHeight: 0,
-};
+}
 
 const buildOpenGraphMediaTags = (
   mediaType: 'image' | 'video',
@@ -25,7 +28,7 @@ const buildOpenGraphMediaTags = (
         property={`og:${mediaType}`}
         content={medium.url}
       />,
-    );
+    )
 
     if (medium.alt) {
       tags.push(
@@ -34,7 +37,7 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:alt`}
           content={medium.alt}
         />,
-      );
+      )
     }
 
     if (medium.secureUrl) {
@@ -44,7 +47,7 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:secure_url`}
           content={medium.secureUrl.toString()}
         />,
-      );
+      )
     }
 
     if (medium.type) {
@@ -54,7 +57,7 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:type`}
           content={medium.type.toString()}
         />,
-      );
+      )
     }
 
     if (medium.width) {
@@ -64,7 +67,7 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:width`}
           content={medium.width.toString()}
         />,
-      );
+      )
     } else if (defaultWidth) {
       tags.push(
         <meta
@@ -72,7 +75,7 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:width`}
           content={defaultWidth.toString()}
         />,
-      );
+      )
     }
 
     if (medium.height) {
@@ -82,7 +85,7 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:height`}
           content={medium.height.toString()}
         />,
-      );
+      )
     } else if (defaultHeight) {
       tags.push(
         <meta
@@ -90,44 +93,42 @@ const buildOpenGraphMediaTags = (
           property={`og:${mediaType}:height`}
           content={defaultHeight.toString()}
         />,
-      );
+      )
     }
 
-    return tags;
-  }, [] as ReactNode[]);
-};
+    return tags
+  }, [] as ReactNode[])
+}
 
 const buildTags = (config: BuildTagsParams) => {
-  const tagsToRender: ReactNode[] = [];
+  const tagsToRender: ReactNode[] = []
 
   if (config.titleTemplate) {
-    defaults.templateTitle = config.titleTemplate;
+    defaults.templateTitle = config.titleTemplate
   }
 
-  let updatedTitle = '';
+  let updatedTitle = ''
   if (config.title) {
-    updatedTitle = config.title;
+    updatedTitle = config.title
     if (defaults.templateTitle) {
-      updatedTitle = defaults.templateTitle.replace(/%s/g, () => updatedTitle);
+      updatedTitle = defaults.templateTitle.replace(/%s/g, () => updatedTitle)
     }
   } else if (config.defaultTitle) {
-    updatedTitle = config.defaultTitle;
+    updatedTitle = config.defaultTitle
   }
 
   if (updatedTitle) {
-    tagsToRender.push(<title key="title">{updatedTitle}</title>);
+    tagsToRender.push(<title key="title">{updatedTitle}</title>)
   }
 
   const noindex =
-    config.noindex ||
-    defaults.noindex ||
-    config.dangerouslySetAllPagesToNoIndex;
+    config.noindex || defaults.noindex || config.dangerouslySetAllPagesToNoIndex
   const nofollow =
     config.nofollow ||
     defaults.nofollow ||
-    config.dangerouslySetAllPagesToNoFollow;
+    config.dangerouslySetAllPagesToNoFollow
 
-  let robotsParams = '';
+  let robotsParams = ''
   if (config.robotsProps) {
     const {
       nosnippet,
@@ -138,7 +139,7 @@ const buildTags = (config: BuildTagsParams) => {
       noimageindex,
       notranslate,
       unavailableAfter,
-    } = config.robotsProps;
+    } = config.robotsProps
 
     robotsParams = `${nosnippet ? ',nosnippet' : ''}${
       maxSnippet ? `,max-snippet:${maxSnippet}` : ''
@@ -148,15 +149,15 @@ const buildTags = (config: BuildTagsParams) => {
       noimageindex ? ',noimageindex' : ''
     }${maxVideoPreview ? `,max-video-preview:${maxVideoPreview}` : ''}${
       notranslate ? ',notranslate' : ''
-    }`;
+    }`
   }
 
   if (noindex || nofollow) {
     if (config.dangerouslySetAllPagesToNoIndex) {
-      defaults.noindex = true;
+      defaults.noindex = true
     }
     if (config.dangerouslySetAllPagesToNoFollow) {
-      defaults.nofollow = true;
+      defaults.nofollow = true
     }
 
     tagsToRender.push(
@@ -167,7 +168,7 @@ const buildTags = (config: BuildTagsParams) => {
           nofollow ? 'nofollow' : 'follow'
         }${robotsParams}`}
       />,
-    );
+    )
   } else {
     tagsToRender.push(
       <meta
@@ -175,7 +176,7 @@ const buildTags = (config: BuildTagsParams) => {
         name="robots"
         content={`index,follow${robotsParams}`}
       />,
-    );
+    )
   }
 
   if (config.description) {
@@ -185,7 +186,7 @@ const buildTags = (config: BuildTagsParams) => {
         name="description"
         content={config.description}
       />,
-    );
+    )
   }
 
   if (config.mobileAlternate) {
@@ -196,11 +197,11 @@ const buildTags = (config: BuildTagsParams) => {
         media={config.mobileAlternate.media}
         href={config.mobileAlternate.href}
       />,
-    );
+    )
   }
 
   if (config.languageAlternates && config.languageAlternates.length > 0) {
-    config.languageAlternates.forEach(languageAlternate => {
+    config.languageAlternates.forEach((languageAlternate) => {
       tagsToRender.push(
         <link
           rel="alternate"
@@ -208,8 +209,8 @@ const buildTags = (config: BuildTagsParams) => {
           hrefLang={languageAlternate.hrefLang}
           href={languageAlternate.href}
         />,
-      );
-    });
+      )
+    })
   }
 
   if (config.twitter) {
@@ -220,7 +221,7 @@ const buildTags = (config: BuildTagsParams) => {
           name="twitter:card"
           content={config.twitter.cardType}
         />,
-      );
+      )
     }
 
     if (config.twitter.site) {
@@ -230,7 +231,7 @@ const buildTags = (config: BuildTagsParams) => {
           name="twitter:site"
           content={config.twitter.site}
         />,
-      );
+      )
     }
 
     if (config.twitter.handle) {
@@ -240,7 +241,7 @@ const buildTags = (config: BuildTagsParams) => {
           name="twitter:creator"
           content={config.twitter.handle}
         />,
-      );
+      )
     }
   }
 
@@ -252,7 +253,7 @@ const buildTags = (config: BuildTagsParams) => {
           property="fb:app_id"
           content={config.facebook.appId}
         />,
-      );
+      )
     }
   }
 
@@ -263,7 +264,7 @@ const buildTags = (config: BuildTagsParams) => {
         property="og:title"
         content={config.openGraph?.title || updatedTitle}
       />,
-    );
+    )
   }
 
   if (config.openGraph?.description || config.description) {
@@ -273,7 +274,7 @@ const buildTags = (config: BuildTagsParams) => {
         property="og:description"
         content={config.openGraph?.description || config.description}
       />,
-    );
+    )
   }
 
   if (config.openGraph) {
@@ -284,15 +285,15 @@ const buildTags = (config: BuildTagsParams) => {
           property="og:url"
           content={config.openGraph.url || config.canonical}
         />,
-      );
+      )
     }
 
     if (config.openGraph.type) {
-      const type = config.openGraph.type.toLowerCase();
+      const type = config.openGraph.type.toLowerCase()
 
       tagsToRender.push(
         <meta key="og:type" property="og:type" content={type} />,
-      );
+      )
 
       if (type === 'profile' && config.openGraph.profile) {
         if (config.openGraph.profile.firstName) {
@@ -302,7 +303,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="profile:first_name"
               content={config.openGraph.profile.firstName}
             />,
-          );
+          )
         }
 
         if (config.openGraph.profile.lastName) {
@@ -312,7 +313,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="profile:last_name"
               content={config.openGraph.profile.lastName}
             />,
-          );
+          )
         }
 
         if (config.openGraph.profile.username) {
@@ -322,7 +323,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="profile:username"
               content={config.openGraph.profile.username}
             />,
-          );
+          )
         }
 
         if (config.openGraph.profile.gender) {
@@ -332,7 +333,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="profile:gender"
               content={config.openGraph.profile.gender}
             />,
-          );
+          )
         }
       } else if (type === 'book' && config.openGraph.book) {
         if (
@@ -346,8 +347,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="book:author"
                 content={author}
               />,
-            );
-          });
+            )
+          })
         }
 
         if (config.openGraph.book.isbn) {
@@ -357,7 +358,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="book:isbn"
               content={config.openGraph.book.isbn}
             />,
-          );
+          )
         }
 
         if (config.openGraph.book.releaseDate) {
@@ -367,7 +368,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="book:release_date"
               content={config.openGraph.book.releaseDate}
             />,
-          );
+          )
         }
 
         if (config.openGraph.book.tags && config.openGraph.book.tags.length) {
@@ -378,8 +379,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="book:tag"
                 content={tag}
               />,
-            );
-          });
+            )
+          })
         }
       } else if (type === 'article' && config.openGraph.article) {
         if (config.openGraph.article.publishedTime) {
@@ -389,7 +390,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="article:published_time"
               content={config.openGraph.article.publishedTime}
             />,
-          );
+          )
         }
 
         if (config.openGraph.article.modifiedTime) {
@@ -399,7 +400,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="article:modified_time"
               content={config.openGraph.article.modifiedTime}
             />,
-          );
+          )
         }
 
         if (config.openGraph.article.expirationTime) {
@@ -409,7 +410,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="article:expiration_time"
               content={config.openGraph.article.expirationTime}
             />,
-          );
+          )
         }
 
         if (
@@ -423,8 +424,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="article:author"
                 content={author}
               />,
-            );
-          });
+            )
+          })
         }
 
         if (config.openGraph.article.section) {
@@ -434,7 +435,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="article:section"
               content={config.openGraph.article.section}
             />,
-          );
+          )
         }
 
         if (
@@ -448,8 +449,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="article:tag"
                 content={tag}
               />,
-            );
-          });
+            )
+          })
         }
       } else if (
         (type === 'video.movie' ||
@@ -470,7 +471,7 @@ const buildTags = (config: BuildTagsParams) => {
                   property="video:actor"
                   content={actor.profile}
                 />,
-              );
+              )
             }
 
             if (actor.role) {
@@ -480,9 +481,9 @@ const buildTags = (config: BuildTagsParams) => {
                   property="video:actor:role"
                   content={actor.role}
                 />,
-              );
+              )
             }
-          });
+          })
         }
 
         if (
@@ -496,8 +497,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="video:director"
                 content={director}
               />,
-            );
-          });
+            )
+          })
         }
 
         if (
@@ -511,8 +512,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="video:writer"
                 content={writer}
               />,
-            );
-          });
+            )
+          })
         }
 
         if (config.openGraph.video.duration) {
@@ -522,7 +523,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="video:duration"
               content={config.openGraph.video.duration.toString()}
             />,
-          );
+          )
         }
 
         if (config.openGraph.video.releaseDate) {
@@ -532,7 +533,7 @@ const buildTags = (config: BuildTagsParams) => {
               property="video:release_date"
               content={config.openGraph.video.releaseDate}
             />,
-          );
+          )
         }
 
         if (config.openGraph.video.tags && config.openGraph.video.tags.length) {
@@ -543,8 +544,8 @@ const buildTags = (config: BuildTagsParams) => {
                 property="video:tag"
                 content={tag}
               />,
-            );
-          });
+            )
+          })
         }
 
         if (config.openGraph.video.series) {
@@ -554,18 +555,18 @@ const buildTags = (config: BuildTagsParams) => {
               property="video:series"
               content={config.openGraph.video.series}
             />,
-          );
+          )
         }
       }
     }
 
     // images
     if (config.defaultOpenGraphImageWidth) {
-      defaults.defaultOpenGraphImageWidth = config.defaultOpenGraphImageWidth;
+      defaults.defaultOpenGraphImageWidth = config.defaultOpenGraphImageWidth
     }
 
     if (config.defaultOpenGraphImageHeight) {
-      defaults.defaultOpenGraphImageHeight = config.defaultOpenGraphImageHeight;
+      defaults.defaultOpenGraphImageHeight = config.defaultOpenGraphImageHeight
     }
 
     if (config.openGraph.images && config.openGraph.images.length) {
@@ -574,16 +575,16 @@ const buildTags = (config: BuildTagsParams) => {
           defaultWidth: defaults.defaultOpenGraphImageWidth,
           defaultHeight: defaults.defaultOpenGraphImageHeight,
         }),
-      );
+      )
     }
 
     // videos
     if (config.defaultOpenGraphVideoWidth) {
-      defaults.defaultOpenGraphVideoWidth = config.defaultOpenGraphVideoWidth;
+      defaults.defaultOpenGraphVideoWidth = config.defaultOpenGraphVideoWidth
     }
 
     if (config.defaultOpenGraphVideoHeight) {
-      defaults.defaultOpenGraphVideoHeight = config.defaultOpenGraphVideoHeight;
+      defaults.defaultOpenGraphVideoHeight = config.defaultOpenGraphVideoHeight
     }
 
     if (config.openGraph.videos && config.openGraph.videos.length) {
@@ -592,7 +593,7 @@ const buildTags = (config: BuildTagsParams) => {
           defaultWidth: defaults.defaultOpenGraphVideoWidth,
           defaultHeight: defaults.defaultOpenGraphVideoHeight,
         }),
-      );
+      )
     }
 
     if (config.openGraph.locale) {
@@ -602,7 +603,7 @@ const buildTags = (config: BuildTagsParams) => {
           property="og:locale"
           content={config.openGraph.locale}
         />,
-      );
+      )
     }
 
     if (config.openGraph.site_name) {
@@ -612,18 +613,18 @@ const buildTags = (config: BuildTagsParams) => {
           property="og:site_name"
           content={config.openGraph.site_name}
         />,
-      );
+      )
     }
   }
 
   if (config.canonical) {
     tagsToRender.push(
       <link rel="canonical" href={config.canonical} key="canonical" />,
-    );
+    )
   }
 
   if (config.additionalMetaTags && config.additionalMetaTags.length > 0) {
-    config.additionalMetaTags.forEach(tag => {
+    config.additionalMetaTags.forEach((tag) => {
       tagsToRender.push(
         <meta
           key={`meta:${
@@ -631,19 +632,19 @@ const buildTags = (config: BuildTagsParams) => {
           }`}
           {...tag}
         />,
-      );
-    });
+      )
+    })
   }
 
   if (config.additionalLinkTags?.length) {
-    config.additionalLinkTags.forEach(tag => {
+    config.additionalLinkTags.forEach((tag) => {
       tagsToRender.push(
         <link key={`link${tag.keyOverride ?? tag.href}${tag.rel}`} {...tag} />,
-      );
-    });
+      )
+    })
   }
 
-  return tagsToRender;
-};
+  return tagsToRender
+}
 
-export default buildTags;
+export default buildTags

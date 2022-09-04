@@ -1,4 +1,4 @@
-import type { Action } from '~/types'
+import type { Action } from '~/types.js'
 
 export function setAction(action?: Action) {
   if (action) {

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import type { Address, ContactPoint, OrganizationCategory } from '~/types'
-import { setAddress } from '~/utils/schema/setAddress'
-import { setContactPoints } from '~/utils/schema/setContactPoints'
+import type { Address, ContactPoint, OrganizationCategory } from '~/types.js'
+import { setAddress } from '~/utils/schema/setAddress.js'
+import { setContactPoints } from '~/utils/schema/setContactPoints.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface OrganizationJsonLdProps extends JsonLdProps {
   type?: OrganizationCategory

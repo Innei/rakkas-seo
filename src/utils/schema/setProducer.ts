@@ -1,4 +1,4 @@
-import type { Producer } from '~/types'
+import type { Producer } from '~/types.js'
 
 export function setProducer(producer?: Producer) {
   if (producer) {

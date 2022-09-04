@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { setAuthor } from '~/utils/schema/setAuthor'
-import { setPublisher } from '~/utils/schema/setPublisher'
+import { setAuthor } from '~/utils/schema/setAuthor.js'
+import { setPublisher } from '~/utils/schema/setPublisher.js'
 
-import { JsonLd, JsonLdProps } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface NewsArticleJsonLdProps extends JsonLdProps {
   url: string
@@ -47,7 +48,7 @@ function NewsArticleJsonLd({
     image: images,
     articleSection: section,
     dateCreated: dateCreated || datePublished,
-    datePublished: datePublished,
+    datePublished,
     dateModified: dateModified || datePublished,
     author: setAuthor(authorName),
     publisher: setPublisher(publisherName, publisherLogo),

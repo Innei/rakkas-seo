@@ -1,4 +1,4 @@
-import { Geo } from '~/types'
+import type { Geo } from '~/types.js'
 
 export function setGeo(geo?: Geo) {
   if (geo) {

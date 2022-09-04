@@ -1,10 +1,10 @@
 import React from 'react'
 
-import type { Provider } from '~/types'
-import { setProvider } from '~/utils/schema/setProvider'
+import type { Provider } from '~/types.js'
+import { setProvider } from '~/utils/schema/setProvider.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface CourseJsonLdProps extends JsonLdProps {
   courseName: string

@@ -1,8 +1,8 @@
 import { Head } from 'rakkasjs'
 import React, { Component } from 'react'
 
-import { NextSeoProps } from '../types'
-import buildTags from './buildTags'
+import type { NextSeoProps } from '../types.js'
+import buildTags from './buildTags.js'
 
 export default class Seo extends Component<NextSeoProps, {}> {
   render() {

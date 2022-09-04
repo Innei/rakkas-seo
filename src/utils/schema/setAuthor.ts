@@ -1,4 +1,4 @@
-import { ArticleAuthor } from '../../types';
+import type { ArticleAuthor } from '../../types.js'
 
 /**
  * Include name and url
@@ -6,7 +6,7 @@ import { ArticleAuthor } from '../../types';
  * @returns
  */
 function includeNameAndUrl(author: ArticleAuthor): boolean {
-  return typeof author === 'object' && !!(author.name && author.url);
+  return typeof author === 'object' && !!(author.name && author.url)
 }
 
 /**
@@ -19,26 +19,28 @@ function generateAuthorInfo(author: string | ArticleAuthor) {
     return {
       '@type': 'Person',
       name: author,
-    };
+    }
   } else if (includeNameAndUrl(author)) {
     return {
       '@type': 'Person',
       name: author.name,
       url: author.url,
-    };
+    }
   }
 
-  return;
+  return
 }
 
 export function setAuthor(
   author?: string | string[] | ArticleAuthor | ArticleAuthor[],
 ) {
   if (Array.isArray(author)) {
-    return author.map(item => generateAuthorInfo(item)).filter(item => !!item);
+    return author
+      .map((item) => generateAuthorInfo(item))
+      .filter((item) => !!item)
   } else if (author) {
-    return generateAuthorInfo(author);
+    return generateAuthorInfo(author)
   }
 
-  return;
+  return
 }

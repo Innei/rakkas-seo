@@ -1,5 +1,5 @@
-import { Step } from '~/types'
-import { setImage } from '~/utils/schema/setImage'
+import type { Step } from '~/types.js'
+import { setImage } from '~/utils/schema/setImage.js'
 
 export function setStep(step?: Step[]) {
   if (step) {
@@ -7,7 +7,7 @@ export function setStep(step?: Step[]) {
       const { itemListElement, image } = stepElement
       const currentListElements = itemListElement?.map(({ type, text }) => ({
         '@type': type,
-        text: text,
+        text,
       }))
       return {
         ...stepElement,

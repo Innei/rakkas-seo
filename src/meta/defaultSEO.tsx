@@ -1,8 +1,8 @@
 import { Head } from 'rakkasjs'
 import React, { Component } from 'react'
 
-import type { DefaultSeoProps } from '../types'
-import buildTags from './buildTags'
+import type { DefaultSeoProps } from '../types.js'
+import buildTags from './buildTags.js'
 
 export default class DefaultSeo extends Component<DefaultSeoProps, {}> {
   render() {

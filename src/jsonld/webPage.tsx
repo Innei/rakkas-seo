@@ -1,9 +1,9 @@
 import React from 'react'
 
-import type { ReviewedBy } from '~/types'
-import { setReviewedBy } from '~/utils/schema/setReviewedBy'
+import type { ReviewedBy } from '~/types.js'
+import { setReviewedBy } from '~/utils/schema/setReviewedBy.js'
 
-import { JsonLd } from './jsonld'
+import { JsonLd } from './jsonld.js'
 
 export interface WebPageJsonLdProps {
   keyOverride?: string

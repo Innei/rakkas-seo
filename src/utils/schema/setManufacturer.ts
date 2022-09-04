@@ -1,8 +1,8 @@
-import { setImage } from './setImage';
+import { setImage } from './setImage.js'
 
 interface Manufacturer {
-  manufacturerName?: string;
-  manufacturerLogo?: string;
+  manufacturerName?: string
+  manufacturerLogo?: string
 }
 
 export function setManufacturer(manufacturer?: Manufacturer) {
@@ -14,7 +14,7 @@ export function setManufacturer(manufacturer?: Manufacturer) {
       '@type': 'Organization',
       name: manufacturer.manufacturerName,
       logo: setImage(manufacturer.manufacturerLogo),
-    };
+    }
   }
-  return undefined;
+  return undefined
 }

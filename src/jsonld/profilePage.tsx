@@ -1,9 +1,10 @@
 import React from 'react'
 
-import type { ItemListElements } from '~/types'
-import { setItemListElements } from '~/utils/schema/setItemListElements'
+import type { ItemListElements } from '~/types.js'
+import { setItemListElements } from '~/utils/schema/setItemListElements.js'
 
-import { JsonLd, JsonLdProps } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface ProfilePageJsonLdProps extends JsonLdProps {
   breadcrumb: string | ItemListElements[]

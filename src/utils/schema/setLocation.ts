@@ -1,6 +1,6 @@
-import { Location, Place, VirtualLocation } from '~/types'
+import type { Location, Place, VirtualLocation } from '~/types.js'
 
-import { setAddress } from './setAddress'
+import { setAddress } from './setAddress.js'
 
 export function setLocation(location: Location) {
   if (!location) {

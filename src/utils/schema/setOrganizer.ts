@@ -1,4 +1,4 @@
-import { Organizer } from '~/types'
+import type { Organizer } from '~/types.js'
 
 export function setOrganizer(organizer?: Organizer) {
   if (organizer) {

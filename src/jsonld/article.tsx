@@ -1,11 +1,11 @@
 import React from 'react'
 
-import type { ArticleAuthor } from '~/types'
-import { setAuthor } from '~/utils/schema/setAuthor'
-import { setPublisher } from '~/utils/schema/setPublisher'
+import type { ArticleAuthor } from '~/types.js'
+import { setAuthor } from '~/utils/schema/setAuthor.js'
+import { setPublisher } from '~/utils/schema/setPublisher.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface ArticleJsonLdProps extends JsonLdProps {
   type?: 'Article' | 'Blog' | 'NewsArticle'

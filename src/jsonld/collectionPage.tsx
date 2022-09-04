@@ -1,10 +1,10 @@
 import React from 'react'
 
-import type { CreativeWork } from '~/types'
-import { setCreativeWork } from '~/utils/schema/setCreativeWork'
+import type { CreativeWork } from '~/types.js'
+import { setCreativeWork } from '~/utils/schema/setCreativeWork.js'
 
-import type { JsonLdProps } from './jsonld'
-import { JsonLd } from './jsonld'
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
 export interface CollectionPageJsonLdProps extends JsonLdProps {
   name: string

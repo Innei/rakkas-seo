@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import { JsonLd, JsonLdProps } from './jsonld';
+import type { JsonLdProps } from './jsonld.js'
+import { JsonLd } from './jsonld.js'
 
-export interface HEREJsonLdProps extends JsonLdProps {}
+export type HEREJsonLdProps = JsonLdProps
 
 function HEREJsonLd({ type = 'HERE', keyOverride, ...rest }: HEREJsonLdProps) {
   return (
     <JsonLd type={type} keyOverride={keyOverride} {...rest} scriptKey="HERE" />
-  );
+  )
 }
 
-export default HEREJsonLd;
+export default HEREJsonLd
