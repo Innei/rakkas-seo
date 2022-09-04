@@ -1,16 +1,17 @@
 {
-  "name": "template",
-  "private": true,
-  "version": "0.0.0",
-  "description": "TODO",
-  "author": "Innei",
+  "name": "rakkas-seo",
+  "version": "0.6.0-3",
+  "description": "rakkas SEO is a plug in that makes managing your SEO easier in rakkas.js projects.",
+  "author": {
+    "name": "Gary Meehan",
+    "email": "garymeehan@outlook.com"
+  },
   "license": "MIT",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "unpkg": "lib/index.js",
   "types": "types/index.d.ts",
-  "unpkg": "dist/index.umd.min.js",
   "files": [
-    "dist",
     "lib",
     "esm",
     "readme.md",
@@ -34,7 +35,7 @@
   },
   "bump": {
     "before": [
-      "npm run package"
+      "npm run build"
     ],
     "publish": true
   },
@@ -43,35 +44,29 @@
     "build": "tsc --build ./src/tsconfig.build.json && tsc --build src/tsconfig.cjs.json",
     "postbuild": "tsc-alias -p src/tsconfig.build.json && tsc-alias -p src/tsconfig.cjs.json && npm run types",
     "types": "rm -rf types && tsc --build src/tsconfig.types.json && tsc-alias -p src/tsconfig.types.json",
-    "package": "NODE_ENV=production npm run build && rollup -c",
-    "prepackage": "rm -rf build",
     "test": "vitest",
     "dev": "vite"
+  },
+  "peerDependencies": {
+    "rakkasjs": "0.6.0"
   },
   "devDependencies": {
     "@innei/eslint-config-react-ts": "0.9.4",
     "@innei/eslint-config-ts": "0.9.4",
     "@innei/prettier": "0.9.4",
-    "@rollup/plugin-commonjs": "22.0.1",
-    "@rollup/plugin-node-resolve": "13.3.0",
-    "@rollup/plugin-typescript": "8.3.3",
     "@types/node": "18.0.6",
-    "@unocss/preset-wind": "0.44.5",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
     "gh-pages": "4.0.0",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "postcss": "8.4.14",
-    "postcss-import": "14.1.0",
-    "postcss-nested": "5.0.6",
     "prettier": "2.7.1",
-    "rollup": "2.77.0",
-    "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-postcss": "4.0.2",
-    "rollup-plugin-terser": "7.0.2",
+    "rakkasjs": "0.6.0",
+    "react": "^18.2.0",
+    "react-dom": "18",
     "tsc-alias": "1.7.0",
     "tslib": "2.4.0",
     "typescript": "4.7.4",
-    "unocss": "0.44.5",
     "vite": "3.0.2",
     "vite-tsconfig-paths": "3.5.0",
     "vitest": "0.18.1"
